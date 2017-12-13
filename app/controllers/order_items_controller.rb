@@ -1,6 +1,9 @@
 class OrderItemsController < ApplicationController
-
+  def index
+    binding.pry
+  end
   def create
+    binding.pry
     @order = current_order
     @item = @order.order_items.new(item_params)
     @order.save
@@ -26,11 +29,12 @@ class OrderItemsController < ApplicationController
       render status: 200, json: {
         message: "Your Item has been successfully updated."
       }
+    end
   end
 
 private
 
   def item_params
-    params.require(:order_item).permit(:quantity, :product_id, :account_id)
+    params.permit(:quantity, :product_id)
   end
 end

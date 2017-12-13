@@ -19,6 +19,7 @@ end
   User.create!(
     name: "Mark",
     email: "test@gmail.com",
+    nickname: 'aGuy',
     password: "11111111"
   )
 end

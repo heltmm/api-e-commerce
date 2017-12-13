@@ -21,6 +21,7 @@ gem 'puma', '~> 3.7'
 gem 'stripe'
 gem 'faker'
 gem 'devise_token_auth'
+gem 'omniauth'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
