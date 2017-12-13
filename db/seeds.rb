@@ -11,7 +11,7 @@ Product.destroy_all
 20.times do
   Product.create!(
     name: Faker::Beer.unique.name,
-    price: Faker::Number.between(5, 100)
+    price: Faker::Number.decimal(2)
   )
 end
 
