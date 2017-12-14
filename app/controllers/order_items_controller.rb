@@ -6,7 +6,7 @@ class OrderItemsController < ApplicationController
     @item = @order.order_items.new(quantity: params['quantity'],
                                   product_id: params['product_id'])
     @order.save
-    json_response(@order, :created)
+    json_response(@item, :created)
   end
 
   def destroy
