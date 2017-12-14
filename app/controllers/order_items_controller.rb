@@ -1,11 +1,11 @@
 class OrderItemsController < ApplicationController
-  def index
-    binding.pry
-  end
+
   def create
     binding.pry
+
     @order = current_order
-    @item = @order.order_items.new(item_params)
+    @item = @order.order_items.new(quantity: params['quantity'],
+                                  product_id: params['product_id'])
     @order.save
     session[:order_id] = @order.id
     json_response(@order, :created)
@@ -32,9 +32,9 @@ class OrderItemsController < ApplicationController
     end
   end
 
-private
+public
 
   def item_params
-    params.permit(:quantity, :product_id)
+    params.permit('access-token', :client, :expiry, :tokenType, :uid, :product_id, :quantity)
   end
 end
