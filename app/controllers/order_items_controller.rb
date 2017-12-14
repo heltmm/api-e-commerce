@@ -10,7 +10,6 @@ class OrderItemsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @order = current_order
     @item = @order.order_items.find(params[:id])
     @item.destroy
