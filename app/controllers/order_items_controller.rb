@@ -1,13 +1,11 @@
 class OrderItemsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
-    binding.pry
-
     @order = current_order
     @item = @order.order_items.new(quantity: params['quantity'],
                                   product_id: params['product_id'])
     @order.save
-    session[:order_id] = @order.id
     json_response(@order, :created)
   end
 

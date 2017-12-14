@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20171212162636) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "pending"
     t.integer "account_id"
     t.decimal "total_price"
     t.datetime "created_at", null: false
